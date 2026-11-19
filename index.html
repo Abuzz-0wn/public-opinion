@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#142b3a">
+<title>PUBLIC VOICE | ജനങ്ങളുടെ ശബ്ദം</title>
+<style>
+:root{--navy:#142b3a;--ink:#172b38;--muted:#637482;--paper:#f4f6f7;--line:#dce3e7;--white:#fff;--accent:#d6a85f}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Malayalam",sans-serif;line-height:1.65}
+header{background:var(--navy);color:white;padding:20px max(22px,calc((100% - 1080px)/2))}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-size:19px;font-weight:800;letter-spacing:2px}.tag{font-size:11px;color:#d5e0e6;letter-spacing:1.2px}
+main{max-width:1080px;margin:auto;padding:34px 20px 60px}.hero{background:linear-gradient(125deg,#142b3a,#24495b);color:white;border-radius:22px;padding:clamp(28px,6vw,64px)}
+.kicker{color:#e9c98f;font-size:12px;letter-spacing:2px;font-weight:700}h1{font-size:clamp(34px,6vw,58px);line-height:1.2;margin:14px 0 18px}.hero p{max-width:700px;color:#e0e9ed;font-size:17px;margin:0}.rule{width:58px;height:3px;background:var(--accent);margin:25px 0}.pill{display:inline-block;border:1px solid #6f8997;border-radius:30px;padding:5px 12px;font-size:12px;color:#e6edf0;margin-top:22px}
+.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;margin-top:24px;align-items:start}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,34px);box-shadow:0 8px 28px #1b34420a}
+h2{font-size:24px;margin:0 0 8px}.sub{color:var(--muted);font-size:14px;margin:0 0 24px}label{display:block;font-weight:700;margin:18px 0 8px}
+input,textarea{width:100%;border:1px solid #cbd5db;border-radius:11px;padding:14px 15px;font:inherit;background:#fff;color:var(--ink);outline:none}
+textarea{min-height:190px;resize:vertical}input:focus,textarea:focus{border-color:#42677a;box-shadow:0 0 0 3px #42677a20}
+.req{color:#a53b35;font-size:12px;margin-left:6px}.hint,.notice{font-size:12px;color:var(--muted);margin-top:7px}
+button{border:0;border-radius:11px;background:var(--navy);color:white;padding:14px 22px;font:inherit;font-weight:750;cursor:pointer;width:100%;margin-top:22px}
+button:hover{background:#24495b}button:disabled{opacity:.6;cursor:wait}
+.status{display:none;padding:12px 14px;border-radius:10px;margin-top:15px;font-size:14px}.status.show{display:block}.status.ok{background:#e8f4ed;color:#205b39}.status.err{background:#fff0ed;color:#8b3026}
+.side h3{margin:0 0 12px;font-size:17px}.side p{font-size:14px;color:var(--muted);margin:0 0 18px}.point{border-top:1px solid var(--line);padding:14px 0}.point b{display:block;font-size:14px}.point span{font-size:13px;color:var(--muted)}
+.hp{position:absolute;left:-5000px}footer{background:#102431;color:#d6e0e5;padding:24px 20px;text-align:center;font-size:12px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.hero{border-radius:16px}main{padding-top:20px}.tag.right{display:none}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div><div class="brand">PUBLIC VOICE</div><div class="tag">THE PEOPLE'S OPINION PLATFORM</div></div><div class="tag right">INDEPENDENT PUBLIC INITIATIVE</div></div></header>
+<main>
+<section class="hero">
+<div class="kicker">KERALA · PUBLIC OPINION</div>
+<h1>ജനങ്ങളുടെ ശബ്ദം.<br>പൊതുചർച്ചയ്ക്കൊരു വേദി.</h1>
+<p>കേരളത്തിലെ ഭരണനിർവഹണവുമായി ബന്ധപ്പെട്ട് നിങ്ങൾ ശ്രദ്ധിച്ച പ്രശ്നങ്ങളും പോരായ്മകളും ആശങ്കകളും നിർദേശങ്ങളും തുറന്നുപറയാം.</p>
+<div class="rule"></div>
+<p>നിങ്ങളുടെ അനുഭവം രേഖപ്പെടുത്തുക. അഭിപ്രായങ്ങൾ വസ്തുതാപരവും മാന്യവുമായ ഭാഷയിൽ പങ്കുവെക്കുക.</p>
+<span class="pill">അഭിപ്രായം നിർബന്ധം · പേര് ഐച്ഛികം</span>
+</section>
+<div class="layout">
+<section class="card">
+<h2>നിങ്ങളുടെ അഭിപ്രായം രേഖപ്പെടുത്തുക</h2>
+<p class="sub">അഭിപ്രായം നിർബന്ധമാണ്. പേര് നൽകുന്നത് ഐച്ഛികമാണ്.</p>
+<form id="opinionForm">
+<label for="opinion">നിങ്ങളുടെ അഭിപ്രായം <span class="req">* നിർബന്ധം</span></label>
+<textarea id="opinion" name="opinion" required minlength="10" maxlength="10000" placeholder="ഭരണനേതൃത്വവുമായി ബന്ധപ്പെട്ട് നിങ്ങൾ ശ്രദ്ധിച്ച പ്രശ്നം എന്താണ്? നിങ്ങളുടെ അനുഭവം, വിമർശനം, അല്ലെങ്കിൽ നിർദേശം ഇവിടെ വിശദമായി രേഖപ്പെടുത്തുക."></textarea>
+<div class="hint">വ്യക്തമായ സംഭവങ്ങളും അനുഭവങ്ങളും രേഖപ്പെടുത്തുക. സ്ഥിരീകരിക്കാത്ത ആരോപണങ്ങളും വ്യക്തിപരമായ അധിക്ഷേപങ്ങളും ഒഴിവാക്കുക.</div>
+<label for="name">പേര് <span class="hint">(ഐച്ഛികം)</span></label>
+<input id="name" name="name" type="text" maxlength="80" placeholder="നിങ്ങളുടെ പേര് (നൽകാൻ താൽപര്യമുണ്ടെങ്കിൽ മാത്രം)">
+<div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<button id="submitBtn" type="submit">അഭിപ്രായം സമർപ്പിക്കുക</button>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+<p class="notice">പേര് നൽകേണ്ടതില്ല. സമർപ്പിക്കുന്ന അഭിപ്രായങ്ങൾ പൊതുവായി പ്രസിദ്ധീകരിക്കുന്നതിന് മുമ്പ് പരിശോധിക്കണം. ഈ ഫോം അഭിപ്രായങ്ങൾ ശേഖരിക്കാനാണ്; അടിയന്തര പരാതികൾക്കോ ഔദ്യോഗിക പരാതി സമർപ്പണത്തിനോ പകരമല്ല.</p>
+</form>
+</section>
+<aside class="card side">
+<h3>ഈ വേദിയുടെ ലക്ഷ്യം</h3>
+<p>ഭരണനിർവഹണവുമായി ബന്ധപ്പെട്ട പൊതുജനങ്ങളുടെ ആശങ്കകളും അനുഭവങ്ങളും രേഖപ്പെടുത്തി ഉത്തരവാദിത്തമുള്ള പൊതുചർച്ചയ്ക്ക് സഹായിക്കുക.</p>
+<div class="point"><b>സ്വതന്ത്ര അഭിപ്രായം</b><span>ഓരോരുത്തർക്കും സ്വന്തം നിലപാട് തുറന്നുപറയാം.</span></div>
+<div class="point"><b>വസ്തുതാപരമായ രേഖപ്പെടുത്തൽ</b><span>കഴിയുന്നിടത്ത് സംഭവങ്ങളുടെയും രേഖകളുടെയും വിവരങ്ങൾ ചേർക്കുക.</span></div>
+<div class="point"><b>സ്വകാര്യത</b><span>പേര് ഐച്ഛികമാണ്. പേര് പ്രസിദ്ധീകരിക്കാൻ പ്രത്യേകം സമ്മതം ആവശ്യമാണ്.</span></div>
+<div class="point"><b>ഉത്തരവാദിത്തമുള്ള പ്രസിദ്ധീകരണം</b><span>അഭിപ്രായങ്ങൾ പരിശോധിച്ചശേഷം മാത്രമേ പൊതുവായി പങ്കുവെക്കാവൂ.</span></div>
+</aside>
+</div>
+</main>
+<footer><strong>PUBLIC VOICE</strong><br>സ്വതന്ത്ര പൊതുജനാഭിപ്രായ സംരംഭം · അഭിപ്രായങ്ങൾ പ്രതികരിക്കുന്ന വ്യക്തികളുടെ സ്വന്തം നിലപാടുകളാണ്.</footer>
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyNCYfJbo6C1VGaO-t39FJpKy3ySvFet3n6B8NbKqfwBppyou5L5NP69RaLwDhsXEyI/exec";
+const form = document.getElementById("opinionForm");
+const button = document.getElementById("submitBtn");
+const statusBox = document.getElementById("status");
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const opinion = document.getElementById("opinion").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const honeypot = document.getElementById("website").value;
+
+  if (honeypot) return;
+  if (opinion.length < 10) {
+    statusBox.className = "status show err";
+    statusBox.textContent = "ദയവായി കുറഞ്ഞത് 10 അക്ഷരങ്ങളെങ്കിലും ഉള്ള അഭിപ്രായം രേഖപ്പെടുത്തുക.";
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "സമർപ്പിക്കുന്നു...";
+  statusBox.className = "status";
+  try {
+    const body = new URLSearchParams();
+    body.append("opinion", opinion);
+    body.append("name", name);
+
+    // no-cors is used because Apps Script does not expose a normal browser CORS response.
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"},
+      body: body.toString()
+    });
+
+    form.reset();
+    statusBox.className = "status show ok";
+    statusBox.textContent = "നിങ്ങളുടെ അഭിപ്രായം അയച്ചിട്ടുണ്ട്. നന്ദി. Google Sheet-ൽ രേഖപ്പെട്ടിട്ടുണ്ടെന്ന് ഉടമ പിന്നീട് പരിശോധിക്കണം.";
+  } catch (error) {
+    statusBox.className = "status show err";
+    statusBox.textContent = "അയക്കാൻ കഴിഞ്ഞില്ല. ഇന്റർനെറ്റ് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.";
+  } finally {
+    button.disabled = false;
+    button.textContent = "അഭിപ്രായം സമർപ്പിക്കുക";
+  }
+});
+</script>
+</body>
+</html>
